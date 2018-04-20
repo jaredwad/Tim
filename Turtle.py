@@ -1,6 +1,8 @@
 import numpy as np
 from DataImporter import CSVDataImporter
 from datetime import datetime
+
+from Events.Tick import Tick
 from ShortBreakout import ShortBreakout
 from LongBreakout import LongBreakout
 from TrueRange import TrueRange
@@ -21,12 +23,20 @@ class Turtle:
         self.dollar_volitility = float(1000)
         self.lot_size = float(10)
 
-    def tick_day(self, candle):
+    def tick_day(self, event):
+        if not (event.type == 'TICK' and event.granularity == 'D'):
+            return
+        candle = event.candle
+
         self.short_breakout.tick_day(candle.close)
         self.long_breakout.tick_day(candle.close)
         self.true_range.tick(candle)
 
-    def tick_hour(self, price):
+    def tick_hour(self, event):
+        if not (event.type == 'TICK' and event.granularity == 'H'):
+            return
+        price = event.candle.close
+
         self.short_breakout.tick_hour(price)
         self.long_breakout.tick_hour(price)
 
@@ -118,14 +128,17 @@ if __name__ == "__main__":
             last_day = date.day
 
         if last_day != date.day:
-            turtle.tick_day(Candle.from_list(candles))
+            turtle.tick_day(Tick(Candle.from_list(candles), 'D'))
             candles = []
             last_day = date.day
 
         candles.append(Candle(row['open'], row['high'], row['low'], row['close']))
 
-        turtle.tick_hour(row['close'])
+        turtle.tick_hour(Tick(candles[-1], 'H'))
 
     #        print(date.day, row['close'])
+
+    if turtle.in_market:
+        turtle.exit(candles[-1].close)
 
     turtle.print_pnl()
