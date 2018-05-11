@@ -1,9 +1,7 @@
 import unittest
-from datetime import datetime
 
 import numpy.random as nprnd
 
-from Candle import Candle
 from DataImporter import CSVDataImporter
 from ShortBreakout import ShortBreakout
 

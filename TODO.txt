@@ -1,0 +1,7 @@
+While everything should use RxPy for communication, lets add a datahandler that stores all the data in a single
+    location in a pandas dataframe. It can also be responsible for adding in all the Technical Indicators on every
+    tick. In the event that you later split up the program to different machines / containers, you can just add this to
+    each machine / container, or as an API somewhere (the you could also store it to a db)
+
+Alternatively you could have it calculate the indicators on the fly through the use of decorator functions which could
+    add functionality to the base class

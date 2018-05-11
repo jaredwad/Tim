@@ -1,6 +1,6 @@
 import unittest
 
-from Candle import Candle
+from Indicator.Candle import Candle
 from Events.Market import Market
 from Events.Tick import Tick
 from Executor import Executor
