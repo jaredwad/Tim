@@ -7,6 +7,7 @@ from rx.subjects import Subject
 from Events.DataReady import DataReady
 from Events.Indicator import Indicator
 from Events.Candle import Candle
+from Events.Market import Market
 
 
 class MessageBroker:
@@ -28,6 +29,8 @@ class MessageBroker:
     def get_data_ready(self):
         return self.subject.filter(lambda x: x.type == DataReady.get_name())
 
+    def get_market(self):
+        return self.subject.filter(lambda x: x.type == Market.get_name())
 
 @extensionmethod(Observable)
 def buffer_while(self, condition, scheduler=None):
