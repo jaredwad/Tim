@@ -3,7 +3,7 @@ from unittest.mock import MagicMock
 
 from rx.subjects import Subject
 
-from Indicator.Candle import Candle
+from Events.Candle import Candle
 from Events.Tick import Tick
 from Strategies.PricePredictor import PricePredictor
 

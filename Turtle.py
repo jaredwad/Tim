@@ -5,7 +5,7 @@ from Events.Tick import Tick
 from ShortBreakout import ShortBreakout
 from LongBreakout import LongBreakout
 from TrueRange import TrueRange
-from Indicator.Candle import Candle
+from Events.Candle import Candle
 
 
 class Turtle:

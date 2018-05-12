@@ -3,7 +3,7 @@ from datetime import datetime
 
 from rx.subjects import Subject
 
-from Indicator.Candle import Candle
+from Events.Candle import Candle
 from Events.Market import Market
 from Events.Tick import Tick
 from Portfolio.Portfolio import Portfolio

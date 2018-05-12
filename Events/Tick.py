@@ -1,6 +1,6 @@
 import datetime
 
-from Indicator.Candle import Candle
+from Events.Candle import Candle
 
 
 class Tick:

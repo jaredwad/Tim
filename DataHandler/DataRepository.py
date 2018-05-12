@@ -3,7 +3,7 @@ import numpy as np
 from datetime import datetime
 
 from Events.DataReady import DataReady
-from Indicator.Candle import Candle
+from Events.Candle import Candle
 from Indicator.IndicatorBus import IndicatorBus
 from Indicator.Indicators import MA, EMA, MOM, BBANDS
 from MessageBroker.MessageBroker import MessageBroker

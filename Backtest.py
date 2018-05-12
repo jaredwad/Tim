@@ -2,7 +2,7 @@ from datetime import datetime
 
 from rx.subjects import Subject
 
-from Indicator.Candle import Candle
+from Events.Candle import Candle
 from DataImporter import CSVDataImporter
 from Events.Tick import Tick
 from Indicator.Breakout import Breakout

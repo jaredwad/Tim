@@ -6,7 +6,7 @@ from rx.subjects import Subject
 
 from Events.DataReady import DataReady
 from Events.Indicator import Indicator
-from Indicator.Candle import Candle
+from Events.Candle import Candle
 
 
 class MessageBroker:
